@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./popup.css" />
+    <title>Favicon Fetcher</title>
+  </head>
+  <body>
+    <h1>Favicon Fetcher</h1>
+    <ul id="favicons-list"></ul>
+
+    <div style="background-color: bisque;">
+       <h1>Tab Groups Color Settings</h1>
+
+    <label for="groupColor">Set Group Color:</label>
+    <input type="color" id="groupColor" value="#ff0000">
+    <button id="applyColor">Apply Color</button> 
+    </div>
+    
+
+    <template id="li_template">
+      <li>
+        <a>
+          <h3 class="title">Tab Title</h3>
+          <p class="pathname">Tab Pathname</p>
+        </a>
+      </li>
+    </template>
+
+    <h1>Google Dev Docs</h1>
+    <button>Group Tabs</button>
+    <ul></ul>
+
+    <script src="./popup.js" type="module"></script>
+  </body>
+</html>

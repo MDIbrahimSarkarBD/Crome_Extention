@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "Bangla To English Copy Note",
+    "description": "Base Level Extension",
+    "version": "1.0",
+    "minimum_chrome_version": "102",
+    "omnibox": {
+      "keyword": "api"
+    },
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": "./assent/image/ibrahim.ico"
+    },
+    "permissions": ["activeTab", "scripting", "storage", "alarms"],
+    
+    "host_permissions": ["https://extension-tips.glitch.me/*"],
+    
+    "background": {
+      "service_worker": ["./assent/js/services_worker/background.js"]
+    
+    },
+
+    "content_scripts": [
+      {
+        "matches": ["https://developer.chrome.com/docs/extensions/reference/*"],
+        "css": ["./assent/css/content-style/test.css"],
+        "js": ["./assent/js/content-script/content.js"]
+      }
+    ],
+    "commands": {
+      "_execute_action": {
+        "suggested_key": {
+          "default": "Ctrl+B",
+          "mac": "Command+B"
+        }
+      }
+    }
+    
+
+  }
