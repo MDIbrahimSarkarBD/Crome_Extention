@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Timer Check</title>
+</head>
+<body>
+
+<button id="startButton">Start</button>
+<p id="result"></p>
+
+<script>
+    let startTime;
+    const timeLimitSeconds = 5; // Set the time limit in seconds
+    let timerInterval;
+
+    document.getElementById('startButton').addEventListener('click', function() {
+        startTime = new Date().getTime(); // Capture the start time
+        document.getElementById('result').textContent = "Timer started. Checking every second...";
+
+        // Clear any existing interval to avoid multiple intervals running simultaneously
+        if (timerInterval) {
+            clearInterval(timerInterval);
+        }
+
+        // Set an interval to check the elapsed time every second
+        timerInterval = setInterval(checkElapsedTime, 1000);
+    });
+
+    function checkElapsedTime() {
+        const currentTime = new Date().getTime(); // Capture the current time
+        const elapsedTime = (currentTime - startTime) / 1000; // Calculate elapsed time in seconds
+
+        if (elapsedTime <= timeLimitSeconds) {
+            document.getElementById('result').textContent = "Elapsed time: " + elapsedTime.toFixed(2) + " seconds. Within the limit.";
+            console.log(true); // Log true if within the time limit
+        } else {
+            document.getElementById('result').textContent = "Elapsed time: " + elapsedTime.toFixed(2) + " seconds. Time limit exceeded.";
+            console.log(false); // Log false if time limit is exceeded
+            clearInterval(timerInterval); // Stop the interval once the time limit is exceeded
+        }
+    }
+</script>
+
+</body>
+</html>

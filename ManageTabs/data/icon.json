@@ -1,0 +1,30 @@
+{
+    "list_icon": [
+        "../image/icon/accept.png",
+        "../image/icon/alarm.png",
+        "../image/icon/clock.png",
+        "../image/icon//cloudy.png",
+        "../image/icon/cogwheel.png.",
+        "../image/icon/delete.png.",
+        "../image/icon/film-slate.png.",
+        "../image/icon/google-docs.png",
+        "../image/icon/lighting.png.",
+        "../image/icon/megaphone.png.",
+        "../image/icon/new.png.",
+        "../image/icon/party-popper.png."
+    ],
+    "list_name": [
+        "accept",
+        "alarm",
+        "clock",
+        "cloudy",
+        "cogwheel",
+        "delete",
+        "film-slate",
+        "google-docs",
+        "lighting",
+        "megaphone",
+        "new",
+        "party-popper"
+    ]
+}

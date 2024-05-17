@@ -1,3 +1,6 @@
+import iconList from  './data.js';
+
+
 const listData = [
   {
     name: "Noyon  sakrar",
@@ -61,7 +64,19 @@ const listData = [
   },
 ];
 
-const htmldatalist = document.getElementById("htmldatalist");
+formListSelect('formListSelect_is');
+
+
+
+// Access the iconData
+// Use async/await to wait for the module initialization
+async function main() {
+  await iconList.init(); // Wait for initialization to complete
+  const iconDataa = iconList.getIconData();
+  console.log(iconDataa);
+}
+
+main();
 
 var htmldatalistResult = listData.map((value, index, array) => {
   // console.log("Value " + index +" "+ value.name + "\n");
@@ -80,19 +95,13 @@ var htmldatalistResult = listData.map((value, index, array) => {
         </li>`;
 });
 
-// Now you can use htmldatalistResult as needed, for example, appending it to a list container
-const listContainer = document.getElementById("htmldatalist");
-
-// listContainer.childNodes.map((value, index, array) => {
-
-// console.dir(value);
-// })
-
 // স্ক্রিপ্ট ফাইলের শুরুতে একটি ইভেন্ট হ্যান্ডলার যোগ করুন
 function addEventListenerIS(click, clildParentID, callback) {
     const listChild = clildParentID.querySelector("ul");
   // htmldatalistResult এর প্রতিটি আইটেমের উপর ক্লিক করলে একটি অলার্ট দেখানোর জন্য একটি ইভেন্ট লিসেনার যোগ করুন
-  let listItems = Array.from(listChild.children);
+  var listItems = Array.from(listChild.children);
+ 
+  
   
   listItems.forEach(function (li) {
     li.addEventListener(click, function () {
@@ -103,21 +112,9 @@ function addEventListenerIS(click, clildParentID, callback) {
       // আপনি চাইলে এখানে আরও অনেক কাজ করতে পারেন, যেমন একটি অ্যাজাক্স রিকুয়েস্ট করতে পারেন বা কোনও অ্যাকশন ট্রিগার করতে পারেন
       console.log(title.textContent);
     });
-  });
-
-          
-        
+  });         
 }
 
-//  console.dir(listContainer)
-
-//  const listItems = Array.from(listContainer.children);
-
-// listItems.forEach(function(item) {
-//     item.addEventListener('click', function() {
-//         alert('আপনি ক্লিক করেছেন: ' + item.textContent);
-//     });
-// });
 
 function formListSelect(parameters) {
   // selection ID
@@ -143,14 +140,15 @@ function formListSelect(parameters) {
 
           // console.log(element.target.nodeName);
           listChild.innerHTML = htmldatalistResult.join("");
+        
          
+          
             addEventListenerIS('click', formListSelect , (img, text)=>{
                 childBtnItemImg.src = img;
                 childBtnItemImgTitle.textContent = text;
             });
           
-          
-         
+        
         });
       }
     } else {
@@ -158,5 +156,5 @@ function formListSelect(parameters) {
     }
   });
 }
-formListSelect("formListSelect_is");
-console.log("sd");
+
+

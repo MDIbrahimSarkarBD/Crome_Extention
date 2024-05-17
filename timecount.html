@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timing Example</title>
+</head>
+<body>
+
+<button id="startButton">Start</button>
+<button id="checkButton" disabled>Check</button>
+<p id="result"></p>
+
+<script>
+    let startTime;
+    const timeLimitSeconds = 5.5; // Set the time limit in seconds
+
+    document.getElementById('startButton').addEventListener('click', function() {
+        startTime = new Date().getTime(); // Capture the start time
+        document.getElementById('checkButton').disabled = false; // Enable the check button
+        document.getElementById('result').textContent = "Timer started. Please press 'Check' within " + timeLimitSeconds + " seconds.";
+    });
+
+    document.getElementById('checkButton').addEventListener('click', function() {
+        const currentTime = new Date().getTime(); // Capture the current time
+        const elapsedTime = (currentTime - startTime) / 1000; // Calculate elapsed time in seconds
+
+        if (elapsedTime <= timeLimitSeconds) {
+            document.getElementById('result').textContent = "Success! Elapsed time: " + elapsedTime.toFixed(2) + " seconds.";
+            console.log(true); // Return true
+        } else {
+            document.getElementById('result').textContent = "Failed. Elapsed time: " + elapsedTime.toFixed(2) + " seconds.";
+            console.log(false); // Return false
+        }
+
+        document.getElementById('checkButton').disabled = true; // Disable the check button after checking
+    });
+</script>
+
+</body>
+</html>
