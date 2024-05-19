@@ -17,3 +17,6 @@ var tc = timeCounting;
 timeCounting.setSeconds(15)
 tc.setSeconds(354)
 console.log(tc.getTimes());
+
+
+
